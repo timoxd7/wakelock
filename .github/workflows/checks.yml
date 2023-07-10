@@ -26,11 +26,9 @@ jobs:
           - 'stable'
           - 'beta'
         package:
-          - 'wakelock'
+          - 'wakelock
           - 'wakelock_macos'
           - 'wakelock_platform_interface'
-          - 'wakelock_web'
-          - 'wakelock_windows'
       fail-fast: false
 
     steps:
@@ -60,11 +58,9 @@ jobs:
           - 'beta'
         package:
           - 'wakelock'
-          - 'wakelock_macos'
           - 'wakelock_platform_interface'
           # Web tests do not work for now.
           # - 'wakelock_web'
-          - 'wakelock_windows'
       fail-fast: false
 
     steps:

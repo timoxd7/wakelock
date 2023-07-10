@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:wakelock/src/windows_stub.dart'
-    if (dart.library.io) 'package:wakelock_windows/wakelock_windows.dart';
-import 'package:wakelock_macos/wakelock_macos.dart';
 import 'package:wakelock_platform_interface/wakelock_platform_interface.dart';
 
 /// The [WakelockPlatformInterface] that is used by [Wakelock].
@@ -26,22 +24,6 @@ WakelockPlatformInterface get _defaultPlatformInstance {
   // We want to return early on web as the platform checks are unsupported on
   // web.
   if (kIsWeb) return WakelockPlatformInterface.instance;
-
-  if (Platform.isMacOS) {
-    // Assigning the macOS platform instance like this is not optimal.
-    // Ideally, we would use the default method channel instance on macOS,
-    // however, it is not yet entirely clear how to integrate with pigeon.
-    // This should just work fine and the io reference should be tree shaken
-    // on web.
-    return WakelockMacOS();
-  }
-
-  if (Platform.isWindows) {
-    // This does not feel like the correct way to assign the Windows
-    // implementation, however, the platform channels do not have to be used
-    // thanks to the win32 package. See https://github.com/flutter/flutter/issues/52267.
-    return WakelockWindows();
-  }
 
   return WakelockPlatformInterface.instance;
 }
