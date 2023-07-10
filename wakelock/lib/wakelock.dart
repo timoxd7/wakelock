@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:wakelock/src/windows_stub.dart'
+import 'package:wakelock/src/windows_stub.dart';
 import 'package:wakelock_platform_interface/wakelock_platform_interface.dart';
 
 /// The [WakelockPlatformInterface] that is used by [Wakelock].
